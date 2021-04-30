@@ -1,0 +1,65 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1 class="display-4">Plataforma IoT </h1>
+                <p class="lead">Monitorea y Administra los sensores y actuadores de tu casa desde internet usando IoT.</p>
+                <hr class="my-4">
+                <p>
+                    Instituto Tecnologico Superior de Huichapan<br />
+                    Ingenieria en Sistemas Computacionales<br />  
+                    Internet de las Cosas 
+                </p>
+            </div>
+            <div class="col-sm">
+                <div class=" container">
+                    
+                    <div class="row">
+                        <from method="post">
+                            <div class="container">
+                                <div class="row">
+                                    <h2>Inicio Sesion </h2>
+                                </div>
+                                <div class="row">
+                                    Correo:<input type="email" asp-for="Login.Correo" class="form-control" placeholder="usuario@correo.com" required />
+                                </div>
+                                <div class="row">
+                                    Contraseña:<input type="password" asp-for="Login.Password" class="form-control" placeholder="Contraseña" required />
+                                </div>
+                                <div class="row">
+                                    <input type="hidden" asp-for="EsLogin" value="true" /> <br />
+                                    <input type="submit" class="btn btn-success" value="Iniciar Sesion" />
+                                </div>
+                                <div class="row">
+                                 @if (Model.Error != null) 
+                                    {
+                                        <div class="alert alert-danger" role="alert">
+                                           @Model.Error
+                                        </div>    
+                                    }
+                                     
+                                </div>
+                            </div>                      
+                        </from>
+                    </div>
+                    <div class="row">
+                        
+                            <div class="col">
+                                <form method="post">
+                                    <input type="hidden" asp-for="EsLogin" value="false" /><br />
+                                    <input type="submit" class="btn btn-primary" value="Crear usuario" />
+                                </form>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+ </div>
